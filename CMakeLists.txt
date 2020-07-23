@@ -13,3 +13,5 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -O0 -march=native")
 # The Executable code
 add_subdirectory(app)
 
+# Library code
+add_subdirectory(src)
