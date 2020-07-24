@@ -1,6 +1,10 @@
 #include <iostream>
 
+#include "lib/lib.hpp"
+
 int main(int argc, char *argv[]) {
-  std::cout << "Hello world" << std::endl;
+  for (unsigned int i = 0; i < 10; i++) {
+    std::cout << "Fibonacci(" << i << ") = " << lib::Fibonacci(i) << std::endl;
+  }
   return 0;
 }
