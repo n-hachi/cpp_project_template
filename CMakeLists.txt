@@ -11,12 +11,17 @@ project(
 
 # TODO
 # Modify following sentence according to your project requirement
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Wextra")
-set(CMAKE_CXX_FLAGS_DEBUG "-g3 -O0 -pg")
-set(CMAKE_CXX_FLAGS_RELEASE "-O2 -O0 -march=native")
-
-# The Executable code
-add_subdirectory(app)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Library code
 add_subdirectory(src)
+
+# Only do following if this is the main project
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+
+    # The Executable code
+    add_subdirectory(app)
+
+endif()
