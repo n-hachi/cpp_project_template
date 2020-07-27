@@ -5,7 +5,7 @@ add_executable(
 
 target_link_libraries(
     sample.exe
-    PRIVATE sample
+    PRIVATE mylib
     )
 
 target_compile_features(
