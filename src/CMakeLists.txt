@@ -11,5 +11,10 @@ target_include_directories(
 
 target_compile_features(
     sample
-    PRIVATE cxx_std_11)
+    PRIVATE cxx_std_11
+    )
 
+target_compile_options(
+    sample
+    PRIVATE -Wall -Wextra -O2
+    )
