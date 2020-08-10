@@ -1,20 +1,20 @@
 add_library(
-    sample
+    mylib
     STATIC
-    lib.cpp
+    mylib.cpp
     )
 
 target_include_directories(
-    sample
+    mylib
     PUBLIC ${CMAKE_SOURCE_DIR}/include
     )
 
 target_compile_features(
-    sample
+    mylib
     PRIVATE cxx_std_11
     )
 
 target_compile_options(
-    sample
+    mylib
     PRIVATE -Wall -Wextra -O2
     )

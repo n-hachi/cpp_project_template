@@ -1,8 +1,8 @@
-#include "lib/lib.hpp"
+#include "mylib/mylib.hpp"
 
 #include <vector>
 
-namespace lib {
+namespace mylib {
 
 unsigned int Fibonacci(const unsigned int i) {
   std::vector<unsigned int> v = {0, 1};
@@ -14,4 +14,4 @@ unsigned int Fibonacci(const unsigned int i) {
   return v[i];
 }
 
-}  // namespace lib
+}  // namespace mylib
