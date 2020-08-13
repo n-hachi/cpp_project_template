@@ -23,5 +23,19 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 
 endif()
 
+# FetchContent add in CMak 3.11, download durin the configure step
+include(FetchContent)
+
+# FetchContent_MakeAfailable was not added until CMake 3.14; use our shim
+if(${CMAKE_VERSION} VERSION_LESS 3.14)
+    include(cmake/add_FetchContent_MakeAvailable.cmake)
+endif()
+
+
 # Library code
 add_subdirectory(src)
+
+# Testing only available if this is the main app
+if(CMKE_PROJECT_NAME STREQUAL PROJECT_NAME OR BUILD_TESTING)
+    add_subdirectory(test)
+endif()
