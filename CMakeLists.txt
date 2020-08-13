@@ -9,19 +9,19 @@ project(
     LANGUAGES CXX
     )
 
-# TODO
-# Modify following sentence according to your project requirement
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Library code
-add_subdirectory(src)
-
 # Only do following if this is the main project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+
+    # Ensure -std=c++xx instead of -std=g++xx
+    set(CMAKE_CXX_EXTENSIONS OFF)
+
+    # Testing only available if this is the main app
+    include(CTest)
 
     # The Executable code
     add_subdirectory(app)
 
 endif()
+
+# Library code
+add_subdirectory(src)
