@@ -1,4 +1,7 @@
+[![Build Status](https://travis-ci.com/n-hachi/cpp_project_template.svg?branch=master)](https://travis-ci.com/n-hachi/cpp_project_template)
+
 # cpp_project_template
+---
 
 cppプロジェクトで共通して必要と考えている機能を組み込むためのプロジェクト <br>
 ubuntuで動作を確認している
