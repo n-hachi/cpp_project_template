@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eux
 
-TOPDIR="$(git rev-parse --show-cdup)"
-TOOLSDIR="${TOPDIR}tools"
-GITDIR="$(git rev-parse --git-dir)"
+top_dir="$(git rev-parse --show-toplevel)"
+tools_dir="${top_dir}/tools"
+git_dir="$(git rev-parse --absolute-git-dir)"
 
-cp -r ${TOOLSDIR}/* ${TOPDIR}${GITDIR}/hooks
+cp ${tools_dir}/pre-commit ${git_dir}/hooks

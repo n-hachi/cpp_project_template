@@ -22,7 +22,9 @@ fi
 
 sum=0
 array=()
-for file in $(git diff --cached --name-only --diff-filter=AM $against -- | grep -E '\.(c|cc|cpp|cxx|h|hpp|hxx)$'); do
+top_dir=$(git rev-parse --show-toplevel)
+git_dir=$(git rev-parse --git-dir)
+for file in $(git ls-files | grep -E '\.(c|cc|cpp|cxx|h|hpp|hxx)$'); do
 
     diff -q $file <(clang-format $file -style=file) 1>/dev/null 2>&1
     if [ $? -ne 0 ]; then
