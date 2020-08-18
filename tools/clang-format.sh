@@ -30,7 +30,7 @@ for file in $(git ls-files | grep -E '\.(c|cc|cpp|cxx|h|hpp|hxx)$'); do
     if [ $? -ne 0 ]; then
         #diff -u --color=auto $file <(clang-format $file)
         echo -e "\e[1m${file}\e[m"
-        diff --color=always -u $file <(clang-format $file) | sed -e '1,2d'
+        diff -u $file <(clang-format $file) | sed -e '1,2d'
         echo -e "\n"
         sum=$(($sum + 1))
         array=("${array[@]}" "$file")
