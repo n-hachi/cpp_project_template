@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1...3.18)
+cmake_minimum_required(VERSION 3.11...3.18)
 
 # TODO
 # Edit following project-name
@@ -8,6 +8,14 @@ project(
     DESCRIPTION "Sample cpp project"
     LANGUAGES CXX
     )
+
+# FetchContent add in CMak 3.11, download during the configure step
+include(FetchContent)
+
+# FetchContent_MakeAfailable was not added until CMake 3.14; use our shim
+if(${CMAKE_VERSION} VERSION_LESS 3.14)
+    include(cmake/add_FetchContent_MakeAvailable.cmake)
+endif()
 
 # Only do following if this is the main project
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
@@ -22,15 +30,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     add_subdirectory(app)
 
 endif()
-
-# FetchContent add in CMak 3.11, download durin the configure step
-include(FetchContent)
-
-# FetchContent_MakeAfailable was not added until CMake 3.14; use our shim
-if(${CMAKE_VERSION} VERSION_LESS 3.14)
-    include(cmake/add_FetchContent_MakeAvailable.cmake)
-endif()
-
 
 # Library code
 add_subdirectory(src)
