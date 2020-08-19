@@ -11,6 +11,11 @@ add_executable(
     main.cpp
     )
 
+target_include_directories(
+    sample.exe
+    PUBLIC ${clilib_SOURCE_DIR}/include
+    )
+
 target_link_libraries(
     sample.exe
     PRIVATE mylib
