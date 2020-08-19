@@ -1,3 +1,11 @@
+# Commandline parser library
+FetchContent_Declare(
+    clilib
+    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+    GIT_TAG v1.9.0
+    )
+FetchContent_MakeAvailable(clilib)
+
 add_executable(
     sample.exe
     main.cpp
