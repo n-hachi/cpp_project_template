@@ -30,3 +30,12 @@ target_compile_options(
     sample.exe
     PRIVATE -Wall -Wextra -O2
     )
+
+# For testing
+find_program(BASH_PROGRAM bash)
+if(BASH_PROGRAM)
+    add_test(
+        NAME exectest
+        COMMAND ${BASH_PROGRAM} ${CMAKE_CURRENT_SOURCE_DIR}/exectest.sh ${CMAKE_CURRENT_BINARY_DIR}/sample.exe
+        )
+endif(BASH_PROGRAM)
